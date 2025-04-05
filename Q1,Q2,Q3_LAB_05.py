@@ -12,7 +12,6 @@ Original file is located at
 import chess
 import heapq
 
-# simple material-based evaluation function
 def evaluate(board):
     piece_value = {
         chess.PAWN: 1,
