@@ -22,6 +22,30 @@
 # ○ After every move, the program checks for a winner.
 # ○ If a player has won, the game announces the winner.
 # ○ If the board is full with no winner, the game ends in a draw.
+# Tic-Tac-Toe is a classic two-player game played on a 3×3 grid. The players take turns
+# marking a space with their symbol (X or O). The goal is to form a straight line of three
+# symbols, either horizontally, vertically, or diagonally. If the grid is full and no player
+# has won, the game ends in a draw.
+# In this task, you will implement an AI player using the Minimax algorithm. The AI will
+# analyze the game board and always make the optimal move, ensuring that it never
+# loses.
+# 3.1.1. Game Flow
+# 1. Start of the Game
+# ○ The board starts empty.
+# ○ The human player is assigned the symbol O, and the AI is assigned X.
+# ○ The game alternates between the human and AI.
+# 2. Human Player’s Turn
+# ○ The player enters their move as row and column indices (0-2).
+# ○ If the move is valid, it is placed on the board.
+# ○ If the move is invalid (already occupied), the player is asked to try again.
+# 3. AI’s Turn
+# ○ The AI calculates the best move using the Minimax algorithm.
+# ○ The AI places its X on the board at the optimal position.
+
+# 4. Winning or Drawing Condition
+# ○ After every move, the program checks for a winner.
+# ○ If a player has won, the game announces the winner.
+# ○ If the board is full with no winner, the game ends in a draw.
 import random
 
 def start_game():
@@ -99,6 +123,9 @@ def find_best_move(board):
         if score > best_score:
           best_score = score
           best_move = (row, col)
+  if best_move is None:
+    print("Game Over, No more valid moves!")
+    return 0, 0 
 
   return best_move
 
